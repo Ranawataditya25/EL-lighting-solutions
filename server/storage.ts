@@ -137,7 +137,8 @@ export class MemStorage implements IStorage {
     const post: BlogPost = { 
       ...insertBlogPost, 
       id,
-      publishedAt: new Date()
+      publishedAt: new Date(),
+      published: insertBlogPost.published === undefined ? true : insertBlogPost.published
     };
     this.blogPosts.set(id, post);
     return post;
@@ -165,7 +166,8 @@ export class MemStorage implements IStorage {
     const message: ContactMessage = { 
       ...insertMessage, 
       id,
-      createdAt: new Date()
+      createdAt: new Date(),
+      phone: insertMessage.phone === undefined ? null : insertMessage.phone
     };
     this.contactMessages.set(id, message);
     return message;
@@ -197,7 +199,10 @@ export class MemStorage implements IStorage {
     const video: YoutubeVideo = { 
       ...insertVideo, 
       id,
-      publishedAt: new Date()
+      publishedAt: new Date(),
+      description: insertVideo.description === undefined ? null : insertVideo.description,
+      thumbnailUrl: insertVideo.thumbnailUrl === undefined ? null : insertVideo.thumbnailUrl,
+      category: insertVideo.category === undefined ? null : insertVideo.category
     };
     this.youtubeVideos.set(id, video);
     return video;
