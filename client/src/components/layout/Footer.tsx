@@ -53,15 +53,19 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3"></i>
-                <span>123 Therapy Street, Healthcare Building, London, UK</span>
+                <span>C L Panwar Hospital, C 41, Roop Vihar Colony, Sodala, Jaipur 302019</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-phone-alt mt-1 mr-3"></i>
-                <span>+44 (0) 123 456 7890</span>
+                <span>+91 9782219444</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-envelope mt-1 mr-3"></i>
-                <span>info@physioforu.com</span>
+                <span>physioforu5@gmail.com</span>
+              </li>
+              <li className="flex items-start">
+                <i className="fas fa-clock mt-1 mr-3"></i>
+                <span>Mon-Fri: 10AM-7PM, Sat-Sun: 10AM-5PM</span>
               </li>
             </ul>
           </div>

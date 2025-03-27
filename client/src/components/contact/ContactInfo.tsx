@@ -10,8 +10,10 @@ const ContactInfo = () => {
           </div>
           <div>
             <h4 className="font-bold mb-1">Our Location</h4>
-            <p className="text-text-secondary">123 Therapy Street, Healthcare Building</p>
-            <p className="text-text-secondary">London, UK</p>
+            <p className="text-text-secondary">C L Panwar Hospital</p>
+            <p className="text-text-secondary">C 41, Roop Vihar Colony, Mohan Marg</p>
+            <p className="text-text-secondary">Near Vivek Vihar Metro station, New Sanganer Road</p>
+            <p className="text-text-secondary">Sodala, Jaipur 302019 Rajasthan</p>
           </div>
         </div>
         
@@ -21,7 +23,7 @@ const ContactInfo = () => {
           </div>
           <div>
             <h4 className="font-bold mb-1">Phone</h4>
-            <p className="text-text-secondary">+44 (0) 123 456 7890</p>
+            <p className="text-text-secondary">+91 9782219444</p>
           </div>
         </div>
         
@@ -31,7 +33,7 @@ const ContactInfo = () => {
           </div>
           <div>
             <h4 className="font-bold mb-1">Email</h4>
-            <p className="text-text-secondary">info@physioforu.com</p>
+            <p className="text-text-secondary">physioforu5@gmail.com</p>
           </div>
         </div>
         
@@ -41,9 +43,8 @@ const ContactInfo = () => {
           </div>
           <div>
             <h4 className="font-bold mb-1">Working Hours</h4>
-            <p className="text-text-secondary">Monday - Friday: 8:00 AM - 7:00 PM</p>
-            <p className="text-text-secondary">Saturday: 9:00 AM - 4:00 PM</p>
-            <p className="text-text-secondary">Sunday: Closed</p>
+            <p className="text-text-secondary">Monday - Friday: 10:00 AM - 7:00 PM</p>
+            <p className="text-text-secondary">Saturday - Sunday: 10:00 AM - 5:00 PM</p>
           </div>
         </div>
       </div>
