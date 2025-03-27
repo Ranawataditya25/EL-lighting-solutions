@@ -472,6 +472,13 @@ export class MemStorage implements IStorage {
     // YouTube videos data
     const youtubeVideosData: InsertYoutubeVideo[] = [
       {
+        title: "Indian Physician Neurosciences 17th rank Physiotherapist Dr Vishal Sharma (PhysioForU) Jaipur",
+        videoId: "owGRfzhxaz0",
+        description: "Learn more about Dr. Vishal Sharma's qualifications and expertise in physiotherapy at PhysioForU clinic in Jaipur.",
+        thumbnailUrl: "https://i.ytimg.com/vi/owGRfzhxaz0/maxresdefault.jpg",
+        category: "About Us"
+      },
+      {
         title: "How to Relieve Lower Back Pain at Home",
         videoId: "FFC_eT0kYAc",
         description: "Learn effective exercises and stretches to relieve lower back pain from the comfort of your home.",
