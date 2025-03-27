@@ -3,7 +3,8 @@ import {
   services, Service, InsertService,
   blogPosts, BlogPost, InsertBlogPost,
   testimonials, Testimonial, InsertTestimonial,
-  contactMessages, ContactMessage, InsertContactMessage
+  contactMessages, ContactMessage, InsertContactMessage,
+  youtubeVideos, YoutubeVideo, InsertYoutubeVideo
 } from "@shared/schema";
 
 export interface IStorage {
@@ -32,6 +33,13 @@ export interface IStorage {
   // Contact message methods
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getContactMessages(): Promise<ContactMessage[]>;
+  
+  // YouTube video methods
+  getYoutubeVideos(): Promise<YoutubeVideo[]>;
+  getYoutubeVideoById(id: number): Promise<YoutubeVideo | undefined>;
+  getYoutubeVideoByVideoId(videoId: string): Promise<YoutubeVideo | undefined>;
+  createYoutubeVideo(video: InsertYoutubeVideo): Promise<YoutubeVideo>;
+  getYoutubeVideosByCategory(category: string): Promise<YoutubeVideo[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -40,12 +48,14 @@ export class MemStorage implements IStorage {
   private blogPosts: Map<number, BlogPost>;
   private testimonials: Map<number, Testimonial>;
   private contactMessages: Map<number, ContactMessage>;
+  private youtubeVideos: Map<number, YoutubeVideo>;
   
   private userCurrentId: number;
   private serviceCurrentId: number;
   private blogPostCurrentId: number;
   private testimonialCurrentId: number;
   private contactMessageCurrentId: number;
+  private youtubeVideoCurrentId: number;
 
   constructor() {
     this.users = new Map();
@@ -53,12 +63,14 @@ export class MemStorage implements IStorage {
     this.blogPosts = new Map();
     this.testimonials = new Map();
     this.contactMessages = new Map();
+    this.youtubeVideos = new Map();
     
     this.userCurrentId = 1;
     this.serviceCurrentId = 1;
     this.blogPostCurrentId = 1;
     this.testimonialCurrentId = 1;
     this.contactMessageCurrentId = 1;
+    this.youtubeVideoCurrentId = 1;
     
     // Initialize with sample data
     this.initializeData();
@@ -162,6 +174,39 @@ export class MemStorage implements IStorage {
   async getContactMessages(): Promise<ContactMessage[]> {
     return Array.from(this.contactMessages.values())
       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }
+  
+  // YouTube video methods
+  async getYoutubeVideos(): Promise<YoutubeVideo[]> {
+    return Array.from(this.youtubeVideos.values())
+      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  }
+  
+  async getYoutubeVideoById(id: number): Promise<YoutubeVideo | undefined> {
+    return this.youtubeVideos.get(id);
+  }
+  
+  async getYoutubeVideoByVideoId(videoId: string): Promise<YoutubeVideo | undefined> {
+    return Array.from(this.youtubeVideos.values()).find(
+      (video) => video.videoId === videoId,
+    );
+  }
+  
+  async createYoutubeVideo(insertVideo: InsertYoutubeVideo): Promise<YoutubeVideo> {
+    const id = this.youtubeVideoCurrentId++;
+    const video: YoutubeVideo = { 
+      ...insertVideo, 
+      id,
+      publishedAt: new Date()
+    };
+    this.youtubeVideos.set(id, video);
+    return video;
+  }
+  
+  async getYoutubeVideosByCategory(category: string): Promise<YoutubeVideo[]> {
+    return Array.from(this.youtubeVideos.values())
+      .filter(video => video.category === category)
+      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
   }
   
   // Initialize with sample data
@@ -417,6 +462,56 @@ export class MemStorage implements IStorage {
     
     testimonialsData.forEach(testimonial => {
       this.createTestimonial(testimonial);
+    });
+    
+    // YouTube videos data
+    const youtubeVideosData: InsertYoutubeVideo[] = [
+      {
+        title: "How to Relieve Lower Back Pain at Home",
+        videoId: "FFC_eT0kYAc",
+        description: "Learn effective exercises and stretches to relieve lower back pain from the comfort of your home.",
+        thumbnailUrl: "https://i.ytimg.com/vi/FFC_eT0kYAc/maxresdefault.jpg",
+        category: "Back Pain"
+      },
+      {
+        title: "Exercises for Sciatica and Lower Back Pain",
+        videoId: "JmHV6tXcTYQ",
+        description: "This video demonstrates exercises that can help relieve sciatica pain and lower back discomfort.",
+        thumbnailUrl: "https://i.ytimg.com/vi/JmHV6tXcTYQ/maxresdefault.jpg",
+        category: "Back Pain"
+      },
+      {
+        title: "Neck Pain Relief Exercises",
+        videoId: "Hx6n7AQsXFQ",
+        description: "Simple exercises you can do at home to relieve neck pain and tension.",
+        thumbnailUrl: "https://i.ytimg.com/vi/Hx6n7AQsXFQ/maxresdefault.jpg",
+        category: "Neck Pain"
+      },
+      {
+        title: "Shoulder Rehabilitation Exercises After Injury",
+        videoId: "XVF9QVtGqu0",
+        description: "A guide to rehabilitating your shoulder after an injury or surgery.",
+        thumbnailUrl: "https://i.ytimg.com/vi/XVF9QVtGqu0/maxresdefault.jpg",
+        category: "Shoulder Pain"
+      },
+      {
+        title: "Knee Pain Relief Exercises",
+        videoId: "qVUz4VkBt5k",
+        description: "Learn how to reduce knee pain with these targeted exercises.",
+        thumbnailUrl: "https://i.ytimg.com/vi/qVUz4VkBt5k/maxresdefault.jpg",
+        category: "Knee Pain"
+      },
+      {
+        title: "Post-Surgery Rehabilitation Techniques",
+        videoId: "LgvL5EwQ4Zs",
+        description: "Important rehabilitation exercises for patients recovering from surgery.",
+        thumbnailUrl: "https://i.ytimg.com/vi/LgvL5EwQ4Zs/maxresdefault.jpg",
+        category: "Rehabilitation"
+      }
+    ];
+    
+    youtubeVideosData.forEach(video => {
+      this.createYoutubeVideo(video);
     });
   }
 }

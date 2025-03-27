@@ -11,6 +11,7 @@ import BlogPage from "@/pages/BlogPage";
 import BlogPost from "@/pages/BlogPost";
 import TestimonialsPage from "@/pages/TestimonialsPage";
 import ContactPage from "@/pages/ContactPage";
+import VideosPage from "@/pages/VideosPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/testimonials" component={TestimonialsPage} />
+      <Route path="/videos" component={VideosPage} />
       <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>

@@ -14,6 +14,17 @@ export const insertUserSchema = createInsertSchema(users).pick({
   password: true,
 });
 
+// YouTube videos model
+export const youtubeVideos = pgTable("youtube_videos", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  videoId: text("video_id").notNull().unique(),
+  description: text("description"),
+  thumbnailUrl: text("thumbnail_url"),
+  category: text("category"),
+  publishedAt: timestamp("published_at").notNull().defaultNow(),
+});
+
 // Services model
 export const services = pgTable("services", {
   id: serial("id").primaryKey(),
@@ -76,6 +87,12 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).om
   createdAt: true,
 });
 
+// Insert schema for YouTube videos
+export const insertYoutubeVideoSchema = createInsertSchema(youtubeVideos).omit({
+  id: true,
+  publishedAt: true,
+});
+
 // Type exports
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -91,3 +108,6 @@ export type InsertTestimonial = z.infer<typeof insertTestimonialSchema>;
 
 export type ContactMessage = typeof contactMessages.$inferSelect;
 export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+
+export type YoutubeVideo = typeof youtubeVideos.$inferSelect;
+export type InsertYoutubeVideo = z.infer<typeof insertYoutubeVideoSchema>;

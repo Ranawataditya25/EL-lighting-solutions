@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactMessageSchema } from "@shared/schema";
+import { insertContactMessageSchema, insertYoutubeVideoSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -79,6 +79,62 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       res.status(500).json({ message: "Failed to submit contact form" });
+    }
+  });
+  
+  // YouTube videos endpoints
+  app.get('/api/youtube-videos', async (req, res) => {
+    try {
+      const videos = await storage.getYoutubeVideos();
+      res.json(videos);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch YouTube videos" });
+    }
+  });
+  
+  app.get('/api/youtube-videos/category/:category', async (req, res) => {
+    try {
+      const videos = await storage.getYoutubeVideosByCategory(req.params.category);
+      res.json(videos);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch YouTube videos by category" });
+    }
+  });
+  
+  app.get('/api/youtube-videos/:id', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id, 10);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid video ID" });
+      }
+      
+      const video = await storage.getYoutubeVideoById(id);
+      if (!video) {
+        return res.status(404).json({ message: "YouTube video not found" });
+      }
+      
+      res.json(video);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch YouTube video" });
+    }
+  });
+  
+  app.post('/api/youtube-videos', async (req, res) => {
+    try {
+      const validatedData = insertYoutubeVideoSchema.parse(req.body);
+      const video = await storage.createYoutubeVideo(validatedData);
+      res.status(201).json({
+        message: "YouTube video added successfully",
+        id: video.id
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ 
+          message: "Invalid video data", 
+          errors: error.errors 
+        });
+      }
+      res.status(500).json({ message: "Failed to add YouTube video" });
     }
   });
 

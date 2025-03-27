@@ -4,6 +4,7 @@ import ServicesSection from "@/components/home/ServicesSection";
 import AboutSection from "@/components/home/AboutSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import BlogSection from "@/components/home/BlogSection";
+import VideosSection from "@/components/home/VideosSection";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
 
@@ -20,6 +21,7 @@ const HomePage = () => {
       <AboutSection />
       <TestimonialsSection />
       <BlogSection />
+      <VideosSection />
       
       {/* Contact Section */}
       <section className="py-16 px-4 bg-white">

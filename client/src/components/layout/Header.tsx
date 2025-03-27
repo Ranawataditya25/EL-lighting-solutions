@@ -75,6 +75,12 @@ const Header = () => {
               Testimonials
             </Link>
             <Link 
+              href="/videos" 
+              className={`font-medium hover:text-primary transition duration-200 ${location === '/videos' ? 'text-primary' : ''}`}
+            >
+              Videos
+            </Link>
+            <Link 
               href="/contact" 
               className={`font-medium hover:text-primary transition duration-200 ${location === '/contact' ? 'text-primary' : ''}`}
             >
@@ -174,6 +180,13 @@ const Header = () => {
               onClick={toggleMobileMenu}
             >
               Testimonials
+            </Link>
+            <Link 
+              href="/videos" 
+              className={`block px-3 py-2 rounded-md font-medium hover:bg-neutral-100 hover:text-primary ${location === '/videos' ? 'text-primary' : ''}`}
+              onClick={toggleMobileMenu}
+            >
+              Videos
             </Link>
             <Link 
               href="/contact" 
