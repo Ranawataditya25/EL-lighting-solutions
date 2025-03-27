@@ -9,16 +9,16 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">PhysioForU</h3>
             <p className="mb-4">Professional physiotherapy services dedicated to helping you recover, improve mobility, and enhance your quality of life.</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-neutral-200 transition duration-200" aria-label="Facebook">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-neutral-200 transition duration-200" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="text-white hover:text-neutral-200 transition duration-200" aria-label="Twitter">
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-neutral-200 transition duration-200" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="text-white hover:text-neutral-200 transition duration-200" aria-label="Instagram">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-neutral-200 transition duration-200" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="#" className="text-white hover:text-neutral-200 transition duration-200" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-neutral-200 transition duration-200" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>

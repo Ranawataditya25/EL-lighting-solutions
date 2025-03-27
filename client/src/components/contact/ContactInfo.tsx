@@ -52,16 +52,16 @@ const ContactInfo = () => {
       <div className="mt-8">
         <h4 className="font-bold mb-4">Follow Us</h4>
         <div className="flex space-x-4">
-          <a href="#" className="text-primary hover:text-secondary transition duration-200" aria-label="Facebook">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition duration-200" aria-label="Facebook">
             <i className="fab fa-facebook-f text-xl"></i>
           </a>
-          <a href="#" className="text-primary hover:text-secondary transition duration-200" aria-label="Twitter">
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition duration-200" aria-label="Twitter">
             <i className="fab fa-twitter text-xl"></i>
           </a>
-          <a href="#" className="text-primary hover:text-secondary transition duration-200" aria-label="Instagram">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition duration-200" aria-label="Instagram">
             <i className="fab fa-instagram text-xl"></i>
           </a>
-          <a href="#" className="text-primary hover:text-secondary transition duration-200" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition duration-200" aria-label="LinkedIn">
             <i className="fab fa-linkedin-in text-xl"></i>
           </a>
         </div>
