@@ -26,7 +26,7 @@ const VideosPage = () => {
     isLoading: isLoadingFiltered,
     isError: isErrorFiltered 
   } = useQuery<YoutubeVideo[]>({ 
-    queryKey: ['/api/youtube-videos/category', activeCategory],
+    queryKey: [`/api/youtube-videos/category/${activeCategory}`, activeCategory],
     enabled: activeCategory !== null
   });
 
