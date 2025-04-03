@@ -541,6 +541,126 @@ export class MemStorage implements IStorage {
         description: "What to expect during your first physiotherapy assessment and how it helps in your treatment.",
         thumbnailUrl: "https://i.ytimg.com/vi/rL8MnAjykFk/maxresdefault.jpg",
         category: "Educational"
+      },
+      // Adding new YouTube videos
+      {
+        title: "Physiotherapy Jaipur Dr Vishal Sharma Physioforu",
+        videoId: "jK2mAW2rjPI",
+        description: "Physiotherapy treatment by Dr. Vishal Sharma at PhysioForU clinic in Jaipur.",
+        thumbnailUrl: "https://i.ytimg.com/vi/jK2mAW2rjPI/maxresdefault.jpg",
+        category: "About Us"
+      },
+      {
+        title: "How to Increase Height with Physiotherapy Exercises",
+        videoId: "ibvMpENgX-k",
+        description: "Exercises that can potentially help with height increase through improved posture and alignment.",
+        thumbnailUrl: "https://i.ytimg.com/vi/ibvMpENgX-k/maxresdefault.jpg",
+        category: "Growth & Development"
+      },
+      {
+        title: "Physiotherapy Treatment for Frozen Shoulder",
+        videoId: "ZADWd0-iQRw",
+        description: "Learn about effective physiotherapy techniques for treating frozen shoulder condition.",
+        thumbnailUrl: "https://i.ytimg.com/vi/ZADWd0-iQRw/maxresdefault.jpg",
+        category: "Shoulder Pain"
+      },
+      {
+        title: "Physiotherapy Exercises for Knee Pain Relief",
+        videoId: "ewq4leNzNQY",
+        description: "Guided exercises to help relieve knee pain and improve mobility.",
+        thumbnailUrl: "https://i.ytimg.com/vi/ewq4leNzNQY/maxresdefault.jpg",
+        category: "Knee Pain"
+      },
+      {
+        title: "Ankle Sprain Physiotherapy Treatment",
+        videoId: "Q0xOTHrQzCU",
+        description: "Effective physiotherapy treatment methods for ankle sprains and injuries.",
+        thumbnailUrl: "https://i.ytimg.com/vi/Q0xOTHrQzCU/maxresdefault.jpg",
+        category: "Ankle Injuries"
+      },
+      {
+        title: "Back Pain Relief Exercises - Part 1",
+        videoId: "gdFOa32ZoG0",
+        description: "First part of a series showing exercises for relieving back pain through proper movement.",
+        thumbnailUrl: "https://i.ytimg.com/vi/gdFOa32ZoG0/maxresdefault.jpg",
+        category: "Back Pain"
+      },
+      {
+        title: "Home Physiotherapy Techniques for Neck Pain",
+        videoId: "vUgV2FCqhRU",
+        description: "Simple physiotherapy exercises you can do at home to relieve neck pain.",
+        thumbnailUrl: "https://i.ytimg.com/vi/vUgV2FCqhRU/maxresdefault.jpg",
+        category: "Neck Pain"
+      },
+      {
+        title: "Treating Tennis Elbow with Physiotherapy",
+        videoId: "pPRJhKy91X0",
+        description: "Effective physiotherapy techniques for treating tennis elbow and related conditions.",
+        thumbnailUrl: "https://i.ytimg.com/vi/pPRJhKy91X0/maxresdefault.jpg",
+        category: "Elbow Pain"
+      },
+      {
+        title: "Physiotherapy for Plantar Fasciitis",
+        videoId: "ZfvlnPP1Aik",
+        description: "Treatment and exercise options for managing plantar fasciitis through physiotherapy.",
+        thumbnailUrl: "https://i.ytimg.com/vi/ZfvlnPP1Aik/maxresdefault.jpg",
+        category: "Foot Pain"
+      },
+      {
+        title: "Balance Exercises for Vertigo Patients",
+        videoId: "sH3ABbZIyi0",
+        description: "Specialized balance training exercises for patients experiencing vertigo.",
+        thumbnailUrl: "https://i.ytimg.com/vi/sH3ABbZIyi0/maxresdefault.jpg",
+        category: "Vertigo"
+      },
+      {
+        title: "Post-Stroke Rehabilitation Exercises",
+        videoId: "mgwOWp67S5g",
+        description: "Rehabilitation exercises designed specifically for patients recovering from stroke.",
+        thumbnailUrl: "https://i.ytimg.com/vi/mgwOWp67S5g/maxresdefault.jpg",
+        category: "Rehabilitation"
+      },
+      {
+        title: "Physiotherapy Techniques for Carpal Tunnel Syndrome",
+        videoId: "4c8mW7cMCFc",
+        description: "Effective physiotherapy exercises and treatments for carpal tunnel syndrome.",
+        thumbnailUrl: "https://i.ytimg.com/vi/4c8mW7cMCFc/maxresdefault.jpg",
+        category: "Hand Therapy"
+      },
+      {
+        title: "Physiotherapy for Children with Special Needs",
+        videoId: "mQTdi072zIA",
+        description: "Specialized physiotherapy approaches for children with special needs and developmental conditions.",
+        thumbnailUrl: "https://i.ytimg.com/vi/mQTdi072zIA/maxresdefault.jpg",
+        category: "Pediatric Therapy"
+      },
+      {
+        title: "Therapeutic Exercises for Arthritis Management",
+        videoId: "siCb0LKCSkA",
+        description: "Exercise routines designed to help manage arthritis symptoms and improve joint health.",
+        thumbnailUrl: "https://i.ytimg.com/vi/siCb0LKCSkA/maxresdefault.jpg",
+        category: "Arthritis"
+      },
+      {
+        title: "Posture Correction Techniques",
+        videoId: "k-dtl-e82PE",
+        description: "Learn proper techniques for correcting posture problems and preventing related pain.",
+        thumbnailUrl: "https://i.ytimg.com/vi/k-dtl-e82PE/maxresdefault.jpg",
+        category: "Posture"
+      },
+      {
+        title: "Physiotherapy for Pregnancy-Related Back Pain",
+        videoId: "g86QgdJnyjw",
+        description: "Safe physiotherapy exercises for pregnant women experiencing back pain.",
+        thumbnailUrl: "https://i.ytimg.com/vi/g86QgdJnyjw/maxresdefault.jpg",
+        category: "Pregnancy Care"
+      },
+      {
+        title: "Sports Performance Enhancement Through Physiotherapy",
+        videoId: "cTrGAPPb6qs",
+        description: "How physiotherapy techniques can help improve athletic performance and prevent injuries.",
+        thumbnailUrl: "https://i.ytimg.com/vi/cTrGAPPb6qs/maxresdefault.jpg",
+        category: "Sports Performance"
       }
     ];
     
