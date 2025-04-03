@@ -478,6 +478,78 @@ export class MemStorage implements IStorage {
         thumbnailUrl: "https://i.ytimg.com/vi/owGRfzhxaz0/maxresdefault.jpg",
         category: "About Us"
       },
+      // New videos requested by the user
+      {
+        title: "Why Physiotherapy is Important",
+        videoId: "1l3ugHKC2Aw",
+        description: "Discover the importance of physiotherapy in recovery and maintaining physical health.",
+        thumbnailUrl: "https://i.ytimg.com/vi/1l3ugHKC2Aw/maxresdefault.jpg",
+        category: "Educational"
+      },
+      {
+        title: "Physiotherapy Techniques",
+        videoId: "d3j4MGFFqW0",
+        description: "Learn about various physiotherapy techniques used in professional treatment.",
+        thumbnailUrl: "https://i.ytimg.com/vi/d3j4MGFFqW0/maxresdefault.jpg",
+        category: "Techniques"
+      },
+      {
+        title: "Home Exercise Routine for Better Mobility",
+        videoId: "ApGhiByLWi8",
+        description: "Follow these exercises at home to improve your mobility and flexibility.",
+        thumbnailUrl: "https://i.ytimg.com/vi/ApGhiByLWi8/maxresdefault.jpg",
+        category: "Home Exercises"
+      },
+      {
+        title: "About Dr. Vishal Sharma's Physiotherapy Practice",
+        videoId: "owGRfzhxaz0",
+        description: "Introduction to Dr. Vishal Sharma's physiotherapy practice and approach to patient care.",
+        thumbnailUrl: "https://i.ytimg.com/vi/owGRfzhxaz0/maxresdefault.jpg",
+        category: "About Us"
+      },
+      {
+        title: "Preventing Sports Injuries Through Physiotherapy",
+        videoId: "xNYUHdPnojs",
+        description: "Learn how physiotherapy can help prevent common sports injuries.",
+        thumbnailUrl: "https://i.ytimg.com/vi/xNYUHdPnojs/maxresdefault.jpg",
+        category: "Sports Injuries"
+      },
+      {
+        title: "Physiotherapy for Chronic Pain Management",
+        videoId: "etfLJYM1Lns",
+        description: "Discover how physiotherapy techniques can help manage chronic pain conditions.",
+        thumbnailUrl: "https://i.ytimg.com/vi/etfLJYM1Lns/maxresdefault.jpg",
+        category: "Pain Management"
+      },
+      {
+        title: "Recovering from Joint Replacement Surgery",
+        videoId: "etKRfNyK66Y",
+        description: "Physiotherapy guidance for recovery after joint replacement surgery.",
+        thumbnailUrl: "https://i.ytimg.com/vi/etKRfNyK66Y/maxresdefault.jpg",
+        category: "Rehabilitation"
+      },
+      {
+        title: "Stretching Exercises for Neck and Shoulder Pain",
+        videoId: "ELZmn_vCOiE",
+        description: "Follow these stretches to relieve tension and pain in the neck and shoulder area.",
+        thumbnailUrl: "https://i.ytimg.com/vi/ELZmn_vCOiE/maxresdefault.jpg",
+        category: "Neck Pain"
+      },
+      {
+        title: "Back Pain Relief Through Gentle Exercise",
+        videoId: "YLINHcT_pqQ",
+        description: "Learn gentle exercises that can help alleviate back pain without straining your body.",
+        thumbnailUrl: "https://i.ytimg.com/vi/YLINHcT_pqQ/maxresdefault.jpg",
+        category: "Back Pain"
+      },
+      {
+        title: "Understanding Physiotherapy Assessment",
+        videoId: "rL8MnAjykFk",
+        description: "What to expect during your first physiotherapy assessment and how it helps in your treatment.",
+        thumbnailUrl: "https://i.ytimg.com/vi/rL8MnAjykFk/maxresdefault.jpg",
+        category: "Educational"
+      },
+      // Original videos (except the duplicate one about Dr. Vishal that we already included above)
       {
         title: "How to Relieve Lower Back Pain at Home",
         videoId: "FFC_eT0kYAc",
