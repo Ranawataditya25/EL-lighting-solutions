@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const [location] = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -16,6 +19,30 @@ const Header = () => {
   const toggleServicesDropdown = () => {
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
+
+  const handleServicesMouseEnter = () => {
+    if (dropdownTimerRef.current) {
+      clearTimeout(dropdownTimerRef.current);
+      dropdownTimerRef.current = null;
+    }
+    setDesktopServicesOpen(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    // Add a small delay before closing to make it easier to move to submenu
+    dropdownTimerRef.current = setTimeout(() => {
+      setDesktopServicesOpen(false);
+    }, 150);
+  };
+
+  // Cleanup timer on unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownTimerRef.current) {
+        clearTimeout(dropdownTimerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
@@ -38,14 +65,21 @@ const Header = () => {
             >
               Home
             </Link>
-            <div className="relative group">
+            <div 
+              className="relative" 
+              onMouseEnter={handleServicesMouseEnter}
+              onMouseLeave={handleServicesMouseLeave}
+              ref={dropdownRef}
+            >
               <Link 
                 href="/services" 
                 className={`font-medium hover:text-primary transition duration-200 flex items-center ${location === '/services' || location.startsWith('/services/') ? 'text-primary' : ''}`}
               >
                 Services <i className="fas fa-chevron-down ml-1 text-xs"></i>
               </Link>
-              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50">
+              <div 
+                className={`absolute left-0 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-150 z-50 ${desktopServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+              >
                 <div className="py-1" role="menu" aria-orientation="vertical">
                   <Link href="/services/sports-injuries" className="block px-4 py-2 text-sm hover:bg-neutral-100 hover:text-primary" role="menuitem">Sports Injuries</Link>
                   <Link href="/services/back-neck-pain" className="block px-4 py-2 text-sm hover:bg-neutral-100 hover:text-primary" role="menuitem">Back & Neck Pain</Link>
