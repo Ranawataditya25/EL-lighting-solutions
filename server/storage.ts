@@ -471,6 +471,7 @@ export class MemStorage implements IStorage {
     
     // YouTube videos data
     const youtubeVideosData: InsertYoutubeVideo[] = [
+      // Only including videos that actually exist on YouTube
       {
         title: "Indian Physician Neurosciences 17th rank Physiotherapist Dr Vishal Sharma (PhysioForU) Jaipur",
         videoId: "owGRfzhxaz0",
@@ -478,7 +479,6 @@ export class MemStorage implements IStorage {
         thumbnailUrl: "https://i.ytimg.com/vi/owGRfzhxaz0/maxresdefault.jpg",
         category: "About Us"
       },
-      // New videos requested by the user
       {
         title: "Why Physiotherapy is Important",
         videoId: "1l3ugHKC2Aw",
@@ -499,13 +499,6 @@ export class MemStorage implements IStorage {
         description: "Follow these exercises at home to improve your mobility and flexibility.",
         thumbnailUrl: "https://i.ytimg.com/vi/ApGhiByLWi8/maxresdefault.jpg",
         category: "Home Exercises"
-      },
-      {
-        title: "About Dr. Vishal Sharma's Physiotherapy Practice",
-        videoId: "owGRfzhxaz0",
-        description: "Introduction to Dr. Vishal Sharma's physiotherapy practice and approach to patient care.",
-        thumbnailUrl: "https://i.ytimg.com/vi/owGRfzhxaz0/maxresdefault.jpg",
-        category: "About Us"
       },
       {
         title: "Preventing Sports Injuries Through Physiotherapy",
@@ -548,49 +541,6 @@ export class MemStorage implements IStorage {
         description: "What to expect during your first physiotherapy assessment and how it helps in your treatment.",
         thumbnailUrl: "https://i.ytimg.com/vi/rL8MnAjykFk/maxresdefault.jpg",
         category: "Educational"
-      },
-      // Original videos (except the duplicate one about Dr. Vishal that we already included above)
-      {
-        title: "How to Relieve Lower Back Pain at Home",
-        videoId: "FFC_eT0kYAc",
-        description: "Learn effective exercises and stretches to relieve lower back pain from the comfort of your home.",
-        thumbnailUrl: "https://i.ytimg.com/vi/FFC_eT0kYAc/maxresdefault.jpg",
-        category: "Back Pain"
-      },
-      {
-        title: "Exercises for Sciatica and Lower Back Pain",
-        videoId: "JmHV6tXcTYQ",
-        description: "This video demonstrates exercises that can help relieve sciatica pain and lower back discomfort.",
-        thumbnailUrl: "https://i.ytimg.com/vi/JmHV6tXcTYQ/maxresdefault.jpg",
-        category: "Back Pain"
-      },
-      {
-        title: "Neck Pain Relief Exercises",
-        videoId: "Hx6n7AQsXFQ",
-        description: "Simple exercises you can do at home to relieve neck pain and tension.",
-        thumbnailUrl: "https://i.ytimg.com/vi/Hx6n7AQsXFQ/maxresdefault.jpg",
-        category: "Neck Pain"
-      },
-      {
-        title: "Shoulder Rehabilitation Exercises After Injury",
-        videoId: "XVF9QVtGqu0",
-        description: "A guide to rehabilitating your shoulder after an injury or surgery.",
-        thumbnailUrl: "https://i.ytimg.com/vi/XVF9QVtGqu0/maxresdefault.jpg",
-        category: "Shoulder Pain"
-      },
-      {
-        title: "Knee Pain Relief Exercises",
-        videoId: "qVUz4VkBt5k",
-        description: "Learn how to reduce knee pain with these targeted exercises.",
-        thumbnailUrl: "https://i.ytimg.com/vi/qVUz4VkBt5k/maxresdefault.jpg",
-        category: "Knee Pain"
-      },
-      {
-        title: "Post-Surgery Rehabilitation Techniques",
-        videoId: "LgvL5EwQ4Zs",
-        description: "Important rehabilitation exercises for patients recovering from surgery.",
-        thumbnailUrl: "https://i.ytimg.com/vi/LgvL5EwQ4Zs/maxresdefault.jpg",
-        category: "Rehabilitation"
       }
     ];
     
