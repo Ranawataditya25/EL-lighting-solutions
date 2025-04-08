@@ -10,10 +10,9 @@ const ContactInfo = () => {
           </div>
           <div>
             <h4 className="font-bold mb-1">Our Location</h4>
-            <p className="text-text-secondary">C L Panwar Hospital</p>
-            <p className="text-text-secondary">C 41, Roop Vihar Colony, Mohan Marg</p>
-            <p className="text-text-secondary">Near Vivek Vihar Metro station, New Sanganer Road</p>
-            <p className="text-text-secondary">Sodala, Jaipur 302019 Rajasthan</p>
+            <p className="text-text-secondary">PhysioForU</p>
+            <p className="text-text-secondary">C-98, Om Path, Bhagirath Marg, Shyam Nagar</p>
+            <p className="text-text-secondary">Behind Community Centre, Jaipur</p>
           </div>
         </div>
         

@@ -53,7 +53,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3"></i>
-                <span>C L Panwar Hospital, C 41, Roop Vihar Colony, Sodala, Jaipur 302019</span>
+                <span>C-98, Om Path, Bhagirath Marg, Shyam Nagar, Behind Community Centre, Jaipur</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-phone-alt mt-1 mr-3"></i>
