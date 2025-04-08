@@ -60,18 +60,42 @@ const ContactPage = () => {
             </p>
           </div>
           
-          <div className="rounded-lg overflow-hidden shadow-md h-[400px]">
+          <div className="rounded-lg overflow-hidden shadow-md h-[450px]">
             {/* Embedding a Google Maps iframe */}
-            <div className="w-full h-full bg-white flex items-center justify-center border border-neutral-200 rounded-lg">
-              <div className="text-center p-6">
-                <i className="fas fa-map-marker-alt text-primary text-5xl mb-4"></i>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.839296774746!2d75.7664!3d26.94149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5a1d7ed243b%3A0xca5b21e54dbb8e33!2sPhysioForU!5e0!3m2!1sen!2sus!4v1744091220000!5m2!1sen!2sus" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="PhysioForU Location Map"
+              className="w-full h-full rounded-lg"
+            />
+          </div>
+          
+          <div className="max-w-3xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <div className="flex-shrink-0 text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
                 <h3 className="text-xl font-bold mb-2">Our Location</h3>
                 <p className="text-text-secondary">C-98, Om Path, Bhagirath Marg</p>
                 <p className="text-text-secondary">Shyam Nagar, Behind Community Centre</p>
                 <p className="text-text-secondary">Jaipur, Rajasthan, India</p>
-                <p className="mt-4 text-sm text-text-secondary">
-                  Map loading is disabled in this preview. In production, an interactive map would be displayed here.
-                </p>
+                <a 
+                  href="https://maps.app.goo.gl/rwu3bS2xTGqZDj2F6" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="inline-block mt-3 text-primary hover:text-primary/80 font-medium"
+                >
+                  Get directions →
+                </a>
               </div>
             </div>
           </div>
