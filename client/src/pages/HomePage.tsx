@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet';
 import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import AboutSection from "@/components/home/AboutSection";
@@ -7,14 +6,23 @@ import BlogSection from "@/components/home/BlogSection";
 import VideosSection from "@/components/home/VideosSection";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
+import SEO from "@/components/seo/SEO";
+import { generateHomePageSchema } from "@/components/seo/schemas";
 
 const HomePage = () => {
+  // Generate homepage-specific schema
+  const homePageSchema = generateHomePageSchema();
+  
   return (
     <>
-      <Helmet>
-        <title>PhysioForU - Professional Physiotherapy Services</title>
-        <meta name="description" content="PhysioForU offers professional physiotherapy services for sports injuries, back pain, joint pain, and post-surgical rehabilitation. Book an appointment today." />
-      </Helmet>
+      <SEO 
+        title="Home"
+        description="PhysioForU offers professional physiotherapy services in Jaipur for sports injuries, back pain, joint pain, and post-surgical rehabilitation. Book an appointment today."
+        canonicalUrl="/"
+        ogImage="/images/physioforu-clinic.jpg"
+        ogType="website"
+        schema={homePageSchema}
+      />
       
       <HeroSection />
       <ServicesSection />

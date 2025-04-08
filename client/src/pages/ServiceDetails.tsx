@@ -1,9 +1,10 @@
-import { Helmet } from 'react-helmet';
 import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { Service } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import SEO from "@/components/seo/SEO";
+import { generateServicePageSchema } from "@/components/seo/schemas";
 
 // Additional content for each service type
 const serviceContent: Record<string, { 
@@ -265,12 +266,24 @@ const ServiceDetails = () => {
     );
   }
 
+  // Create service schema for structured data
+  const serviceSchema = generateServicePageSchema({
+    title: service.title,
+    description: service.description,
+    slug: service.slug,
+    image: content.heroImage,
+    // Optional price can be added when available in the model
+  });
+  
   return (
     <>
-      <Helmet>
-        <title>{service.title} | PhysioForU</title>
-        <meta name="description" content={service.description} />
-      </Helmet>
+      <SEO
+        title={service.title}
+        description={service.description}
+        canonicalUrl={`/services/${service.slug}`}
+        ogImage={content.heroImage}
+        schema={serviceSchema}
+      />
       
       {/* Hero Section */}
       <section className="relative">

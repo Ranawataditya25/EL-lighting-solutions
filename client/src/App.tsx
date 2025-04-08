@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Sitemap from "@/components/seo/Sitemap";
 import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
 import ServicesPage from "@/pages/ServicesPage";
@@ -49,6 +50,8 @@ function App() {
       <div className="flex flex-col min-h-screen">
         {/* This component will scroll to top on route change */}
         <ScrollToTop />
+        {/* This component generates the sitemap.xml dynamically */}
+        <Sitemap />
         <Header />
         <main className="flex-grow">
           <Router />

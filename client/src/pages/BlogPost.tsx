@@ -1,10 +1,11 @@
-import { Helmet } from 'react-helmet';
 import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { BlogPost as BlogPostType } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
+import SEO from "@/components/seo/SEO";
+import { generateBlogPostSchema } from "@/components/seo/schemas";
 
 const BlogPost = () => {
   const [match, params] = useRoute<{ slug: string }>('/blog/:slug');
@@ -74,12 +75,30 @@ const BlogPost = () => {
 
   const formattedDate = format(new Date(post.publishedAt), "MMMM d, yyyy");
 
+  // Create blog post schema for structured data
+  const blogPostSchema = generateBlogPostSchema({
+    title: post.title,
+    description: post.excerpt,
+    slug: post.slug,
+    image: post.imageUrl,
+    publishDate: new Date(post.publishedAt).toISOString(),
+    author: "PhysioForU Team", // Default author name
+    tags: [] // Default empty tags array
+  });
+
   return (
     <>
-      <Helmet>
-        <title>{post.title} | PhysioForU Blog</title>
-        <meta name="description" content={post.excerpt} />
-      </Helmet>
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        canonicalUrl={`/blog/${post.slug}`}
+        ogImage={post.imageUrl}
+        ogType="article"
+        articlePublishDate={new Date(post.publishedAt).toISOString()}
+        articleAuthor="PhysioForU Team"
+        articleTags={[]}
+        schema={blogPostSchema}
+      />
       
       {/* Featured Image */}
       <div className="w-full h-[400px] relative">

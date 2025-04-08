@@ -1,19 +1,47 @@
-import { Helmet } from 'react-helmet';
+import { useState } from "react";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
 import AppointmentForm from "@/components/contact/AppointmentForm";
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import SEO from "@/components/seo/SEO";
+import { generateContactPageSchema, generateFAQPageSchema } from "@/components/seo/schemas";
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState("contact");
   
+  // FAQ data for structured data markup
+  const faqData = [
+    {
+      question: "How do I schedule an appointment?",
+      answer: "You can schedule an appointment by calling our office, using our online booking form, or sending us an email. We aim to respond to all inquiries within 24 hours."
+    },
+    {
+      question: "What should I bring to my first appointment?",
+      answer: "Please bring your ID, insurance information (if applicable), any relevant medical records or imaging results, a list of current medications, and comfortable clothing that allows access to the area requiring treatment."
+    },
+    {
+      question: "How long does a typical physiotherapy session last?",
+      answer: "Initial consultations typically last 45-60 minutes, while follow-up sessions are usually 30-45 minutes. The duration may vary based on your specific condition and treatment needs."
+    },
+    {
+      question: "Do I need a doctor's referral to see a physiotherapist?",
+      answer: "No, you don't need a doctor's referral to see our physiotherapists. However, some insurance plans may require a referral for coverage, so please check with your provider."
+    }
+  ];
+  
+  // Generate schemas for the page
+  const contactPageSchema = generateContactPageSchema();
+  const faqSchema = generateFAQPageSchema(faqData);
+  
   return (
     <>
-      <Helmet>
-        <title>Contact Us | PhysioForU</title>
-        <meta name="description" content="Get in touch with PhysioForU for appointments, inquiries, or more information about our physiotherapy services. We're here to help you on your journey to recovery." />
-      </Helmet>
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with PhysioForU for appointments, inquiries, or more information about our physiotherapy services in Jaipur. We're here to help you on your journey to recovery."
+        canonicalUrl="/contact"
+        ogImage="/images/physioforu-contact.jpg"
+        schema={faqSchema}
+      />
       
       {/* Hero Section */}
       <section className="bg-primary py-16 px-4 relative">
