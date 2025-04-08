@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, date, time } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -87,6 +87,24 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).om
   createdAt: true,
 });
 
+// Appointments model
+export const appointments = pgTable("appointments", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  serviceId: integer("service_id"),
+  preferredDate: date("preferred_date").notNull(),
+  preferredTime: text("preferred_time").notNull(),
+  message: text("message"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const insertAppointmentSchema = createInsertSchema(appointments).omit({
+  id: true,
+  createdAt: true,
+});
+
 // Insert schema for YouTube videos
 export const insertYoutubeVideoSchema = createInsertSchema(youtubeVideos).omit({
   id: true,
@@ -108,6 +126,9 @@ export type InsertTestimonial = z.infer<typeof insertTestimonialSchema>;
 
 export type ContactMessage = typeof contactMessages.$inferSelect;
 export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+
+export type Appointment = typeof appointments.$inferSelect;
+export type InsertAppointment = z.infer<typeof insertAppointmentSchema>;
 
 export type YoutubeVideo = typeof youtubeVideos.$inferSelect;
 export type InsertYoutubeVideo = z.infer<typeof insertYoutubeVideoSchema>;

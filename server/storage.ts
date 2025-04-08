@@ -4,6 +4,7 @@ import {
   blogPosts, BlogPost, InsertBlogPost,
   testimonials, Testimonial, InsertTestimonial,
   contactMessages, ContactMessage, InsertContactMessage,
+  appointments, Appointment, InsertAppointment,
   youtubeVideos, YoutubeVideo, InsertYoutubeVideo
 } from "@shared/schema";
 
@@ -34,6 +35,11 @@ export interface IStorage {
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getContactMessages(): Promise<ContactMessage[]>;
   
+  // Appointment methods
+  createAppointment(appointment: InsertAppointment): Promise<Appointment>;
+  getAppointments(): Promise<Appointment[]>;
+  getAppointmentById(id: number): Promise<Appointment | undefined>;
+  
   // YouTube video methods
   getYoutubeVideos(): Promise<YoutubeVideo[]>;
   getYoutubeVideoById(id: number): Promise<YoutubeVideo | undefined>;
@@ -48,6 +54,7 @@ export class MemStorage implements IStorage {
   private blogPosts: Map<number, BlogPost>;
   private testimonials: Map<number, Testimonial>;
   private contactMessages: Map<number, ContactMessage>;
+  private appointments: Map<number, Appointment>;
   private youtubeVideos: Map<number, YoutubeVideo>;
   
   private userCurrentId: number;
@@ -55,6 +62,7 @@ export class MemStorage implements IStorage {
   private blogPostCurrentId: number;
   private testimonialCurrentId: number;
   private contactMessageCurrentId: number;
+  private appointmentCurrentId: number;
   private youtubeVideoCurrentId: number;
 
   constructor() {
@@ -63,6 +71,7 @@ export class MemStorage implements IStorage {
     this.blogPosts = new Map();
     this.testimonials = new Map();
     this.contactMessages = new Map();
+    this.appointments = new Map();
     this.youtubeVideos = new Map();
     
     this.userCurrentId = 1;
@@ -70,6 +79,7 @@ export class MemStorage implements IStorage {
     this.blogPostCurrentId = 1;
     this.testimonialCurrentId = 1;
     this.contactMessageCurrentId = 1;
+    this.appointmentCurrentId = 1;
     this.youtubeVideoCurrentId = 1;
     
     // Initialize with sample data
@@ -176,6 +186,29 @@ export class MemStorage implements IStorage {
   async getContactMessages(): Promise<ContactMessage[]> {
     return Array.from(this.contactMessages.values())
       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }
+  
+  // Appointment methods
+  async createAppointment(insertAppointment: InsertAppointment): Promise<Appointment> {
+    const id = this.appointmentCurrentId++;
+    const appointment: Appointment = {
+      ...insertAppointment,
+      id,
+      createdAt: new Date(),
+      message: insertAppointment.message === undefined ? null : insertAppointment.message,
+      serviceId: insertAppointment.serviceId === undefined ? null : insertAppointment.serviceId
+    };
+    this.appointments.set(id, appointment);
+    return appointment;
+  }
+  
+  async getAppointments(): Promise<Appointment[]> {
+    return Array.from(this.appointments.values())
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }
+  
+  async getAppointmentById(id: number): Promise<Appointment | undefined> {
+    return this.appointments.get(id);
   }
   
   // YouTube video methods

@@ -1,8 +1,13 @@
 import { Helmet } from 'react-helmet';
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
+import AppointmentForm from "@/components/contact/AppointmentForm";
+import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ContactPage = () => {
+  const [activeTab, setActiveTab] = useState("contact");
+  
   return (
     <>
       <Helmet>
@@ -28,7 +33,18 @@ const ContactPage = () => {
               <ContactInfo />
             </div>
             <div>
-              <ContactForm />
+              <Tabs defaultValue="contact" value={activeTab} onValueChange={setActiveTab} className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="contact">Contact Us</TabsTrigger>
+                  <TabsTrigger value="appointment">Book Appointment</TabsTrigger>
+                </TabsList>
+                <TabsContent value="contact">
+                  <ContactForm />
+                </TabsContent>
+                <TabsContent value="appointment">
+                  <AppointmentForm />
+                </TabsContent>
+              </Tabs>
             </div>
           </div>
         </div>
@@ -40,7 +56,7 @@ const ContactPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Find Us</h2>
             <p className="max-w-2xl mx-auto text-text-secondary">
-              Visit our clinic located in a convenient and accessible location
+              Visit our clinic located in Jaipur
             </p>
           </div>
           
@@ -50,8 +66,9 @@ const ContactPage = () => {
               <div className="text-center p-6">
                 <i className="fas fa-map-marker-alt text-primary text-5xl mb-4"></i>
                 <h3 className="text-xl font-bold mb-2">Our Location</h3>
-                <p className="text-text-secondary">123 Therapy Street, Healthcare Building</p>
-                <p className="text-text-secondary">London, UK</p>
+                <p className="text-text-secondary">C-98, Om Path, Bhagirath Marg</p>
+                <p className="text-text-secondary">Shyam Nagar, Behind Community Centre</p>
+                <p className="text-text-secondary">Jaipur, Rajasthan, India</p>
                 <p className="mt-4 text-sm text-text-secondary">
                   Map loading is disabled in this preview. In production, an interactive map would be displayed here.
                 </p>

@@ -66,10 +66,10 @@ const AboutPage = () => {
                 className="w-full h-64 object-cover object-center"
               />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Dr. Sarah Johnson</h3>
+                <h3 className="text-xl font-bold mb-1">Dr. Vishal Sharma</h3>
                 <p className="text-primary font-medium mb-3">Lead Physiotherapist</p>
                 <p className="text-text-secondary mb-4">
-                  With over 15 years of experience, Dr. Johnson specializes in sports injuries and rehabilitation. She holds a Doctorate in Physical Therapy and numerous certifications in specialized treatment techniques.
+                  With over 15 years of experience, Dr. Vishal Sharma specializes in sports injuries and rehabilitation. He holds a Doctorate in Physical Therapy and numerous certifications in specialized treatment techniques.
                 </p>
               </div>
             </div>
@@ -82,10 +82,10 @@ const AboutPage = () => {
                 className="w-full h-64 object-cover object-center"
               />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Michael Thomas</h3>
+                <h3 className="text-xl font-bold mb-1">Dr. Mukesh Sharma</h3>
                 <p className="text-primary font-medium mb-3">Senior Physiotherapist</p>
                 <p className="text-text-secondary mb-4">
-                  Michael specializes in back and neck pain management. His patient-centered approach combines manual therapy with personalized exercise programs to achieve optimal results.
+                  Mukesh specializes in back and neck pain management. His patient-centered approach combines manual therapy with personalized exercise programs to achieve optimal results.
                 </p>
               </div>
             </div>
@@ -98,10 +98,10 @@ const AboutPage = () => {
                 className="w-full h-64 object-cover object-center"
               />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Dr. Emily Chen</h3>
+                <h3 className="text-xl font-bold mb-1">Dr. Reena Sharma</h3>
                 <p className="text-primary font-medium mb-3">Physiotherapist</p>
                 <p className="text-text-secondary mb-4">
-                  Dr. Chen is passionate about helping patients recover from surgeries and traumatic injuries. She has extensive experience in post-surgical rehabilitation and pain management.
+                  Dr. Reena is passionate about helping patients recover from surgeries and traumatic injuries. She has extensive experience in post-surgical rehabilitation and pain management.
                 </p>
               </div>
             </div>

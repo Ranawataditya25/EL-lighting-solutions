@@ -1,8 +1,9 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactMessageSchema, insertYoutubeVideoSchema } from "@shared/schema";
+import { insertContactMessageSchema, insertYoutubeVideoSchema, insertAppointmentSchema } from "@shared/schema";
 import { z } from "zod";
+import { sendEmail } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes
@@ -135,6 +136,71 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       res.status(500).json({ message: "Failed to add YouTube video" });
+    }
+  });
+
+  // Appointment endpoint
+  app.post('/api/appointments', async (req, res) => {
+    try {
+      const validatedData = insertAppointmentSchema.parse(req.body);
+      const appointment = await storage.createAppointment(validatedData);
+      
+      // Get service information if serviceId is provided
+      let serviceName = "General consultation";
+      if (appointment.serviceId) {
+        const service = await storage.getServiceById(appointment.serviceId);
+        if (service) {
+          serviceName = service.title;
+        }
+      }
+      
+      // Format the email content
+      const emailSubject = `New Appointment Request: ${appointment.name}`;
+      const emailText = `
+New appointment request details:
+
+Name: ${appointment.name}
+Email: ${appointment.email}
+Phone: ${appointment.phone}
+Service: ${serviceName}
+Preferred Date: ${appointment.preferredDate}
+Preferred Time: ${appointment.preferredTime}
+${appointment.message ? `Additional Message: ${appointment.message}` : ''}
+`;
+
+      const emailHtml = `
+<h2>New Appointment Request</h2>
+<p><strong>Name:</strong> ${appointment.name}</p>
+<p><strong>Email:</strong> ${appointment.email}</p>
+<p><strong>Phone:</strong> ${appointment.phone}</p>
+<p><strong>Service:</strong> ${serviceName}</p>
+<p><strong>Preferred Date:</strong> ${appointment.preferredDate}</p>
+<p><strong>Preferred Time:</strong> ${appointment.preferredTime}</p>
+${appointment.message ? `<p><strong>Additional Message:</strong> ${appointment.message}</p>` : ''}
+`;
+
+      // Send email
+      const emailSent = await sendEmail({
+        to: "physioforu5@gmail.com",
+        subject: emailSubject,
+        text: emailText,
+        html: emailHtml
+      });
+
+      res.status(201).json({
+        message: "Your appointment request has been submitted successfully! We will contact you soon to confirm.",
+        id: appointment.id,
+        emailSent: emailSent
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ 
+          message: "Invalid appointment data", 
+          errors: error.errors 
+        });
+      }
+      console.error("Appointment error:", error);
+      res.status(500).json({ message: "Failed to submit appointment request" });
     }
   });
 
