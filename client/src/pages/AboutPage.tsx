@@ -60,11 +60,13 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Team Member 1 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img 
-                src="/images/Dr_Vishal_Sharma.png" 
-                alt="Dr. Vishal Sharma" 
-                className="w-full h-64 object-cover object-center"
-              />
+              <div className="h-64 flex items-center justify-center p-4">
+                <img 
+                  src="/images/Dr_Vishal_Sharma.png" 
+                  alt="Dr. Vishal Sharma" 
+                  className="h-full object-contain"
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-1">Dr. Vishal Sharma</h3>
                 <p className="text-primary font-medium mb-3">Lead Physiotherapist</p>
@@ -76,11 +78,13 @@ const AboutPage = () => {
             
             {/* Team Member 2 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img 
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-                alt="Michael Thomas" 
-                className="w-full h-64 object-cover object-center"
-              />
+              <div className="h-64 flex items-center justify-center p-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                  alt="Dr. Mukesh Sharma" 
+                  className="h-full object-contain"
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-1">Dr. Mukesh Sharma</h3>
                 <p className="text-primary font-medium mb-3">Senior Physiotherapist</p>
@@ -92,11 +96,13 @@ const AboutPage = () => {
             
             {/* Team Member 3 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img 
-                src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-                alt="Dr. Emily Chen" 
-                className="w-full h-64 object-cover object-center"
-              />
+              <div className="h-64 flex items-center justify-center p-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                  alt="Dr. Reena Sharma" 
+                  className="h-full object-contain"
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-1">Dr. Reena Sharma</h3>
                 <p className="text-primary font-medium mb-3">Physiotherapist</p>
