@@ -61,8 +61,8 @@ const AboutPage = () => {
             {/* Team Member 1 */}
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
               <img 
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-                alt="Dr. Sarah Johnson" 
+                src="/images/Dr_Vishal_Sharma.png" 
+                alt="Dr. Vishal Sharma" 
                 className="w-full h-64 object-cover object-center"
               />
               <div className="p-6">
