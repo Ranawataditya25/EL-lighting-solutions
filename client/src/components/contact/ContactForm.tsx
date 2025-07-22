@@ -41,7 +41,7 @@ const ContactForm = () => {
     onSuccess: () => {
       toast({
         title: "Message Sent",
-        description: "Thank you for your message! We will get back to you soon.",
+        description: "Thank you for your message! We will get back to you soon. A confirmation email has been sent to your email address.",
         variant: "default",
       });
       form.reset();
@@ -76,7 +76,7 @@ const ContactForm = () => {
         
         {isSubmitSuccessful && (
           <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-            <p>Thank you for your message! We will get back to you soon.</p>
+            <p>Thank you for your message! We will get back to you soon. A confirmation email has been sent to your email address.</p>
           </div>
         )}
         
@@ -130,6 +130,7 @@ const ContactForm = () => {
                   placeholder="+44 (0) XXX XXX XXXX" 
                   type="tel" 
                   {...field} 
+                  value={field.value || ""}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </FormControl>

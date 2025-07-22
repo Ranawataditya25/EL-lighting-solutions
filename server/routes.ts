@@ -68,9 +68,88 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertContactMessageSchema.parse(req.body);
       const message = await storage.createContactMessage(validatedData);
+      
+      // Send confirmation email to user
+      const userEmailSubject = `Thank you for contacting PhysioForU - We've received your message`;
+      const userEmailText = `
+Dear ${message.name},
+
+Thank you for reaching out to PhysioForU! We have received your message and appreciate you taking the time to contact us.
+
+Your Message Details:
+Subject: ${message.subject}
+Message: ${message.message}
+
+We will review your inquiry and get back to you within 24 hours. If this is an urgent matter, please feel free to call us directly at +91 9782219444.
+
+Best regards,
+PhysioForU Team
+C-98, Om Path, Bhagirath Marg
+Shyam Nagar, Behind Community Centre
+Jaipur, Rajasthan, India
+Phone: +91 9782219444
+Email: physioforu5@gmail.com
+`;
+
+      const userEmailHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .header { background-color: #2563eb; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; }
+        .message-box { background-color: #f8f9fa; border-left: 4px solid #2563eb; padding: 15px; margin: 20px 0; }
+        .footer { background-color: #f8f9fa; padding: 15px; text-align: center; font-size: 14px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PhysioForU</h1>
+        <p>Thank you for contacting us!</p>
+    </div>
+    
+    <div class="content">
+        <p>Dear ${message.name},</p>
+        
+        <p>Thank you for reaching out to PhysioForU! We have received your message and appreciate you taking the time to contact us.</p>
+        
+        <div class="message-box">
+            <h3>Your Message Details:</h3>
+            <p><strong>Subject:</strong> ${message.subject}</p>
+            <p><strong>Message:</strong> ${message.message}</p>
+        </div>
+        
+        <p>We will review your inquiry and get back to you within 24 hours. If this is an urgent matter, please feel free to call us directly at <strong>+91 9782219444</strong>.</p>
+        
+        <p>Best regards,<br>
+        <strong>PhysioForU Team</strong></p>
+    </div>
+    
+    <div class="footer">
+        <p>
+            C-98, Om Path, Bhagirath Marg<br>
+            Shyam Nagar, Behind Community Centre<br>
+            Jaipur, Rajasthan, India<br>
+            Phone: +91 9782219444 | Email: physioforu5@gmail.com
+        </p>
+    </div>
+</body>
+</html>
+`;
+
+      // Send email to user
+      const emailSent = await sendEmail({
+        to: message.email,
+        subject: userEmailSubject,
+        text: userEmailText,
+        html: userEmailHtml
+      });
+
       res.status(201).json({
-        message: "Thank you for your message! We will get back to you soon.",
-        id: message.id
+        message: "Thank you for your message! We will get back to you soon. A confirmation email has been sent to your email address.",
+        id: message.id,
+        emailSent: emailSent
       });
     } catch (error) {
       if (error instanceof z.ZodError) {

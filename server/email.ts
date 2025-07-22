@@ -29,7 +29,7 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
     // Check if email credentials are available
     const isConfigured = process.env.EMAIL_USER && process.env.EMAIL_PASSWORD;
     
-    // If email is not configured, use ethereal (test) email service
+    // Configure email transport
     const config = isConfigured 
       ? {
           service: 'gmail',
@@ -39,10 +39,13 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
           },
         }
       : {
-          host: 'smtp.ethereal.email',
+          host: 'smtp.gmail.com',
           port: 587,
           secure: false,
-          auth: await createTestAccount()
+          auth: {
+            user: 'ashishpancholi1990@gmail.com',
+            pass: 'mcau knqc evob kqxh'
+          }
         };
     
     // Create a transporter
@@ -51,7 +54,7 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
     // Set default from address
     const from = isConfigured 
       ? process.env.EMAIL_USER
-      : 'appointments@physioforu.com';
+      : 'ashishpancholi1990@gmail.com';
 
     // Send the email
     const info = await transporter.sendMail({
@@ -62,11 +65,8 @@ export async function sendEmail(options: EmailOptions): Promise<boolean> {
       html: options.html, // HTML body
     });
 
-    // Log success and preview URL if using test account
+    // Log success
     console.log('Email sent successfully:', info.messageId);
-    if (!isConfigured && info.messageId) {
-      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    }
     
     return true;
   } catch (error) {
