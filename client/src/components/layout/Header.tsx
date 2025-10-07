@@ -51,8 +51,8 @@ const Header = () => {
           <div className="flex items-center">
             {/* Logo */}
             <Link href="/" className="block">
-              <h1 className="text-2xl font-bold text-primary flex items-center">
-                <span className="text-secondary mr-1">Physio</span>ForU
+              <h1 className="text-4xl font-bold text-violet-400 flex items-center">
+                <span className="text-black mr-1">EL</span>Lights
               </h1>
             </Link>
           </div>
@@ -61,11 +61,11 @@ const Header = () => {
           <nav className="hidden md:flex space-x-6">
             <Link 
               href="/" 
-              className={`font-medium hover:text-primary transition duration-200 ${location === '/' ? 'text-primary' : ''}`}
+              className={`font-bold text-xl hover:text-primary transition duration-200 ${location === '/' ? 'text-primary' : ''}`}
             >
               Home
             </Link>
-            <div 
+            {/* <div 
               className="relative" 
               onMouseEnter={handleServicesMouseEnter}
               onMouseLeave={handleServicesMouseLeave}
@@ -89,34 +89,34 @@ const Header = () => {
                   <Link href="/services/manual-therapy" className="block px-4 py-2 text-sm hover:bg-neutral-100 hover:text-primary" role="menuitem">Manual Therapy</Link>
                 </div>
               </div>
-            </div>
+            </div> */}
             <Link 
               href="/about" 
-              className={`font-medium hover:text-primary transition duration-200 ${location === '/about' ? 'text-primary' : ''}`}
+              className={`font-bold text-xl hover:text-primary transition duration-200 ${location === '/about' ? 'text-primary' : ''}`}
             >
               About Us
             </Link>
-            <Link 
+            {/* <Link 
               href="/blog" 
               className={`font-medium hover:text-primary transition duration-200 ${location === '/blog' || location.startsWith('/blog/') ? 'text-primary' : ''}`}
             >
               Blog
-            </Link>
+            </Link> */}
             <Link 
               href="/testimonials" 
-              className={`font-medium hover:text-primary transition duration-200 ${location === '/testimonials' ? 'text-primary' : ''}`}
+              className={`font-bold text-xl hover:text-primary transition duration-200 ${location === '/testimonials' ? 'text-primary' : ''}`}
             >
               Testimonials
             </Link>
-            <Link 
+            {/* <Link 
               href="/videos" 
               className={`font-medium hover:text-primary transition duration-200 ${location === '/videos' ? 'text-primary' : ''}`}
             >
               Videos
-            </Link>
+            </Link> */}
             <Link 
               href="/contact" 
-              className={`font-medium hover:text-primary transition duration-200 ${location === '/contact' ? 'text-primary' : ''}`}
+              className={`font-bold text-xl hover:text-primary transition duration-200 ${location === '/contact' ? 'text-primary' : ''}`}
             >
               Contact
             </Link>
@@ -142,7 +142,7 @@ const Header = () => {
             >
               Home
             </Link>
-            <div className="relative">
+            {/* <div className="relative">
               <button 
                 className="w-full text-left px-3 py-2 rounded-md font-medium hover:bg-neutral-100 hover:text-primary flex justify-between items-center" 
                 onClick={toggleServicesDropdown}
@@ -193,7 +193,7 @@ const Header = () => {
                   Manual Therapy
                 </Link>
               </div>
-            </div>
+            </div> */}
             <Link 
               href="/about" 
               className={`block px-3 py-2 rounded-md font-medium hover:bg-neutral-100 hover:text-primary ${location === '/about' ? 'text-primary' : ''}`}
@@ -201,13 +201,13 @@ const Header = () => {
             >
               About Us
             </Link>
-            <Link 
+            {/* <Link 
               href="/blog" 
               className={`block px-3 py-2 rounded-md font-medium hover:bg-neutral-100 hover:text-primary ${location === '/blog' || location.startsWith('/blog/') ? 'text-primary' : ''}`}
               onClick={toggleMobileMenu}
             >
               Blog
-            </Link>
+            </Link> */}
             <Link 
               href="/testimonials" 
               className={`block px-3 py-2 rounded-md font-medium hover:bg-neutral-100 hover:text-primary ${location === '/testimonials' ? 'text-primary' : ''}`}
@@ -215,13 +215,13 @@ const Header = () => {
             >
               Testimonials
             </Link>
-            <Link 
+            {/* <Link 
               href="/videos" 
               className={`block px-3 py-2 rounded-md font-medium hover:bg-neutral-100 hover:text-primary ${location === '/videos' ? 'text-primary' : ''}`}
               onClick={toggleMobileMenu}
             >
               Videos
-            </Link>
+            </Link> */}
             <Link 
               href="/contact" 
               className={`block px-3 py-2 rounded-md font-medium hover:bg-neutral-100 hover:text-primary ${location === '/contact' ? 'text-primary' : ''}`}

@@ -69,7 +69,7 @@ const BlogPage = () => {
       </section>
       
       {/* Newsletter Section */}
-      <section className="py-16 px-4 bg-neutral-100">
+      {/* <section className="py-16 px-4 bg-neutral-100">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
           <p className="mb-6 text-text-secondary">
@@ -89,7 +89,7 @@ const BlogPage = () => {
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

@@ -1,15 +1,25 @@
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Testimonial } from "@shared/schema";
 import TestimonialCard from "@/components/shared/TestimonialCard";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const TestimonialsSection = () => {
-  const { data: testimonials, isLoading, error } = useQuery<Testimonial[]>({
-    queryKey: ['/api/testimonials'],
+// Fetch function to get testimonials from API
+async function fetchTestimonials(): Promise<Testimonial[]> {
+  const response = await fetch("/api/testimonials");
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+}
+
+const TestimonialsSection: React.FC = () => {
+  const { data: testimonials, isLoading, error } = useQuery<Testimonial[], Error>({
+    queryKey: ["/api/testimonials"],
+    queryFn: fetchTestimonials,
   });
 
-  // Create skeleton array for loading state
   const skeletonArray = Array(3).fill(null);
 
   return (
@@ -21,10 +31,9 @@ const TestimonialsSection = () => {
             Hear from patients who have experienced the difference our personalized physiotherapy approach makes.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {isLoading ? (
-            // Display skeletons while loading
             skeletonArray.map((_, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center justify-center mb-4">
@@ -51,10 +60,24 @@ const TestimonialsSection = () => {
             ))
           )}
         </div>
-        
+
         <div className="text-center mt-10">
-          <Link href="/testimonials" className="text-primary font-medium hover:text-secondary transition duration-200 inline-flex items-center">
-            Read more testimonials <i className="fas fa-arrow-right ml-2"></i>
+          <Link
+            href="/testimonials"
+            className="text-primary font-medium hover:text-secondary transition duration-200 inline-flex items-center"
+          >
+            Read more testimonials{" "}
+            <svg
+              className="ml-2 h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
+            </svg>
           </Link>
         </div>
       </div>

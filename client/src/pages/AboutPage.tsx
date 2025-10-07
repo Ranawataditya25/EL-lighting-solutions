@@ -1,21 +1,23 @@
 import { Helmet } from 'react-helmet';
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 
 const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | PhysioForU</title>
-        <meta name="description" content="Learn about PhysioForU's team of experienced physiotherapists and our approach to personalized patient care." />
+        <title>About Us | EL Lighting Solutions</title>
+        <meta 
+          name="description" 
+          content="Learn about EL Lighting Solutions and our commitment to delivering innovative, energy-efficient, and stylish lighting solutions for homes and businesses." 
+        />
       </Helmet>
       
       {/* Hero Section */}
       <section className="bg-primary py-16 px-4 relative">
         <div className="container mx-auto text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">About PhysioForU</h1>
+          <h1 className="text-4xl font-bold mb-4">About EL Lighting Solutions</h1>
           <p className="max-w-2xl mx-auto text-lg">
-            Dedicated to delivering exceptional physiotherapy services and personalized care
+            Delivering innovative, energy-efficient, and elegant lighting solutions that brighten every space.
           </p>
         </div>
       </section>
@@ -26,169 +28,77 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-                alt="PhysioForU clinic" 
+                src="/images/photo2.jpg"
+                alt="EL Lighting showroom" 
                 className="rounded-lg shadow-md w-full h-auto"
               />
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-4">Our Story</h2>
               <p className="text-text-secondary mb-4">
-                Founded in 2010, PhysioForU began with a simple mission: to provide accessible, high-quality physiotherapy services that truly make a difference in people's lives. What started as a small practice has grown into a respected clinic serving the community with dedication and expertise.
+                EL Lighting Solutions started with a mission to revolutionize modern spaces with lighting that blends style, efficiency, and durability. 
               </p>
               <p className="text-text-secondary mb-4">
-                Our team of physiotherapists brings together decades of combined experience across various specialties, allowing us to offer comprehensive care for a wide range of conditions. We continuously update our skills and knowledge to incorporate the latest evidence-based practices into our treatments.
+                From residential interiors to commercial projects, we provide customized solutions that not only illuminate but also elevate the ambiance of every environment. 
               </p>
               <p className="text-text-secondary">
-                At PhysioForU, we believe in treating the whole person, not just the symptoms. This holistic approach has helped thousands of patients recover from injuries, manage chronic conditions, and improve their overall quality of life.
+                With a focus on sustainability and innovation, EL Lighting Solutions continues to bring brighter ideas to life, helping homes and businesses shine with confidence. 
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Our Team Section */}
-      <section className="py-16 px-4 bg-neutral-100">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
-            <p className="max-w-2xl mx-auto text-text-secondary">
-              Our team of dedicated professionals is committed to providing the highest standard of physiotherapy care.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Team Member 1 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="h-64 flex items-center justify-center p-4">
-                <img 
-                  src="/images/Dr_Vishal_Sharma.png" 
-                  alt="Dr. Vishal Sharma" 
-                  className="h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Dr. Vishal Sharma</h3>
-                <p className="text-primary font-medium mb-3">Lead Physiotherapist</p>
-                <p className="text-text-secondary mb-4">
-                  With over 15 years of experience, Dr. Vishal Sharma specializes in sports injuries and rehabilitation. He holds a Doctorate in Physical Therapy and numerous certifications in specialized treatment techniques.
-                </p>
-              </div>
-            </div>
-            
-            {/* Team Member 2 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="h-64 flex items-center justify-center p-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-                  alt="Dr. Mukesh Sharma" 
-                  className="h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Dr. Mukesh Sharma</h3>
-                <p className="text-primary font-medium mb-3">Senior Physiotherapist</p>
-                <p className="text-text-secondary mb-4">
-                  Mukesh specializes in back and neck pain management. His patient-centered approach combines manual therapy with personalized exercise programs to achieve optimal results.
-                </p>
-              </div>
-            </div>
-            
-            {/* Team Member 3 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="h-64 flex items-center justify-center p-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-                  alt="Dr. Reena Sharma" 
-                  className="h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Dr. Reena Sharma</h3>
-                <p className="text-primary font-medium mb-3">Physiotherapist</p>
-                <p className="text-text-secondary mb-4">
-                  Dr. Reena is passionate about helping patients recover from surgeries and traumatic injuries. She has extensive experience in post-surgical rehabilitation and pain management.
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
       
       {/* Our Approach Section */}
-      <section id="approach" className="py-16 px-4">
+      <section id="approach" className="py-16 px-4 bg-neutral-100">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Approach</h2>
             <p className="max-w-2xl mx-auto text-text-secondary">
-              We believe in a holistic, evidence-based approach to physiotherapy that addresses not just symptoms but the root causes of your condition.
+              We believe lighting is more than utility — it’s about design, mood, and sustainability. Our approach ensures every project reflects innovation and quality.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Approach 1 */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary mb-4">
-                <i className="fas fa-clipboard-check text-3xl"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Thorough Assessment</h3>
+              <div>
+              <img 
+                src="/images/photo3.jpg"
+                alt="EL Lighting showroom" 
+                className="rounded-lg shadow-md w-full h-auto mb-7"
+              />
+            </div>
+              <h3 className="text-xl font-bold mb-2">Innovative Designs</h3>
               <p className="text-text-secondary">
-                We begin with a comprehensive evaluation of your condition, medical history, and goals to develop a complete understanding of your needs.
+                Our lighting solutions combine creativity and functionality to enhance any space.
               </p>
             </div>
             
-            {/* Approach 2 */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary mb-4">
-                <i className="fas fa-user-md text-3xl"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Personalized Treatment</h3>
+              <div>
+              <img 
+                src="/images/photo4.jpg"
+                alt="EL Lighting showroom" 
+                className="rounded-lg shadow-md w-full h-auto mb-7"
+              />
+            </div>
+              <h3 className="text-xl font-bold mb-2">Energy Efficiency</h3>
               <p className="text-text-secondary">
-                Each treatment plan is tailored to your specific condition, lifestyle, and goals, ensuring the most effective approach for your recovery.
+                We focus on sustainable and cost-effective lighting options for long-term savings.
               </p>
             </div>
             
-            {/* Approach 3 */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary mb-4">
-                <i className="fas fa-book-medical text-3xl"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Evidence-Based Practices</h3>
-              <p className="text-text-secondary">
-                Our treatments are founded on the latest research and proven techniques in physiotherapy to deliver the best possible outcomes.
-              </p>
+              <div>
+              <img 
+                src="/images/photo5.jpg"
+                alt="EL Lighting showroom" 
+                className="rounded-lg shadow-md w-full h-auto mb-7"
+              />
             </div>
-            
-            {/* Approach 4 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary mb-4">
-                <i className="fas fa-hands-helping text-3xl"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Hands-On Care</h3>
+              <h3 className="text-xl font-bold mb-2">Quality Assurance</h3>
               <p className="text-text-secondary">
-                We emphasize manual therapy techniques that directly address pain, limited mobility, and muscle imbalances.
-              </p>
-            </div>
-            
-            {/* Approach 5 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary mb-4">
-                <i className="fas fa-graduation-cap text-3xl"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Patient Education</h3>
-              <p className="text-text-secondary">
-                We empower you with knowledge about your condition and provide strategies to prevent future issues and maintain optimal health.
-              </p>
-            </div>
-            
-            {/* Approach 6 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-primary mb-4">
-                <i className="fas fa-chart-line text-3xl"></i>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Progress Monitoring</h3>
-              <p className="text-text-secondary">
-                We continuously assess your progress and adjust your treatment plan as needed to ensure you achieve your recovery goals.
+                Every product undergoes rigorous quality checks to meet the highest industry standards.
               </p>
             </div>
           </div>
@@ -198,15 +108,21 @@ const AboutPage = () => {
       {/* CTA Section */}
       <section className="py-16 px-4 bg-primary text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Recovery Journey?</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            Brighten Your Spaces with EL Lighting Solutions
+          </h2>
           <p className="max-w-2xl mx-auto mb-8 text-lg">
-            Book an appointment with our expert physiotherapists and take the first step toward improved health and mobility.
+            Explore our premium lighting products and discover how we can transform your home or business with elegance and efficiency.
           </p>
-          <Link href="/contact">
+          <a
+            href="https://wa.me/918824585675?text=Hello%20EL%20Lighting%20Solutions%2C%20I%27m%20interested%20in%20your%20lighting%20products."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button className="bg-secondary hover:bg-secondary/90 text-white font-medium py-3 px-8 rounded-md transition duration-300 text-lg">
-              Book an Appointment
+              Chat on WhatsApp
             </Button>
-          </Link>
+          </a>
         </div>
       </section>
     </>

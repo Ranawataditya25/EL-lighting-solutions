@@ -15,42 +15,36 @@ const HomePage = () => {
   
   return (
     <>
-      <SEO 
-        title="Home"
-        description="PhysioForU offers professional physiotherapy services in Jaipur for sports injuries, back pain, joint pain, and post-surgical rehabilitation. Book an appointment today."
-        canonicalUrl="/"
-        ogImage="/images/physioforu-clinic.jpg"
-        ogType="website"
-        schema={homePageSchema}
-      />
       
       <HeroSection />
-      <ServicesSection />
       <AboutSection />
-      <TestimonialsSection />
-      <BlogSection />
-      <VideosSection />
+      <ServicesSection />
+      {/* <TestimonialsSection /> */}
+      {/* <BlogSection /> */}
+      {/* <VideosSection /> */}
       
       {/* Contact Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
-            <p className="max-w-2xl mx-auto text-text-secondary">
-              Have questions or ready to schedule an appointment? Reach out to us and our team will be happy to assist you.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <ContactInfo />
-            </div>
-            <div>
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
+<section className="py-16 px-4 bg-white">
+  <div className="container mx-auto">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
+      <p className="max-w-2xl mx-auto text-text-secondary">
+        Reach out to us and our team will be happy to assist you.
+      </p>
+    </div>
+    
+    <div className="flex justify-center mb-12">
+      <ContactInfo />
+    </div>
+
+    {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <ContactForm />
+      </div>
+    </div> */}
+  </div>
+</section>
+
     </>
   );
 };
